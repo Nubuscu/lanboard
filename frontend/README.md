@@ -1,4 +1,4 @@
-# lanboard
+# lanboard frontend
 
 > A Vue.js project
 
