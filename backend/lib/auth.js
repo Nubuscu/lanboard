@@ -1,4 +1,3 @@
-
 exports.authenticate = function (req, res, next) {
     const token = req.header('x-authentication')
     if (token === null) {
