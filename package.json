@@ -1,0 +1,8 @@
+{
+    "devDependencies": {
+        "concurrently": "^4.1.2"
+    },
+    "scripts": {
+        "start-dev": "concurrently -n BACKEND,FRONTEND -p \"{time}-{name}\" -t \"HH:mm:ss\" -c cyan,blue \"cd backend && nodemon server.js\" \"cd frontend && npm run dev\""
+    }
+}
