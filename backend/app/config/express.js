@@ -5,6 +5,6 @@ module.exports = () => {
     app.use(bodyParser.json())
 
     require('../routes/users.js') (app)
-    // require('../routes/scores.js') (app)
+    require('../routes/scores.js') (app)
     return app
 }

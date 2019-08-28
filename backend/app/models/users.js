@@ -51,3 +51,16 @@ exports.getTokenFor = async function (username) {
             return null
         })
 }
+/**
+ * verifies the token given and resolves with the username if the token is valid
+ */
+exports.getUsernameFor = async function (token) {
+    let db = await mongo.connect(url)
+    var dbo = db.db(dbName)
+    return dbo.collection(collectionName).findOne({ 'token': token })
+        .then(function (val) {
+            return val.username
+        }).catch(function (err) {
+            throw err
+        })
+}
