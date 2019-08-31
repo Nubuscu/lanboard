@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import json from '../../env.json'
 export default {
     name: 'Scores',
     data () {
@@ -19,14 +18,11 @@ export default {
                 'username': 'Number Juan Champ',
                 'score': 42
             }],
-            data: json
         }
     },
     mounted: function () {
-        console.log(this.data.backend_host)
+        // TODO polling? websockets/pusher?
     }
-// TODO polling? websockets/pusher?
-
 }
 </script>
 

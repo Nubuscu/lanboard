@@ -4,7 +4,7 @@ exports.authenticate = function (req, res, next) {
     console.log(token);
 
     if (token === null) {
-        res.sendStatus(401)
+        res.status(401)
     } else {
         UsersModel.getUsernameFor(token).then(function (username) {
             console.log(username + ' validated')
@@ -12,7 +12,7 @@ exports.authenticate = function (req, res, next) {
             next()
         }).catch(function (reason) {
             console.log(reason)
-            res.sendStatus(401)
+            res.status(401)
         })
     }
 }

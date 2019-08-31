@@ -2,6 +2,9 @@
 
 > A Vue.js project
 
+## Expected environment variables
+
+* `LANBOARD_BACKEND_URL`: the base url for the backend e.g. `localhost:5000` (note, no trailing `/`)
 ## Build Setup
 
 ``` bash

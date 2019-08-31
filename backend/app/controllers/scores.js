@@ -2,12 +2,12 @@ const Scores = require('../models/scores')
 exports.update = function (req, res) {
     const delta = parseInt(req.body.delta)
     if (delta === NaN) {
-        res.sendStatus(400)
+        res.status(400)
     } else {
         Scores.update(req.locals.token, delta).then(function (val) {
-            res.sendStatus(200)
+            res.status(200)
         }).catch(function (reason) {
-            res.sendStatus(418)
+            res.status(418)
         })
     }
 }
