@@ -59,8 +59,12 @@ exports.getUsernameFor = async function (token) {
     var dbo = db.db(dbName)
     return dbo.collection(collectionName).findOne({ 'token': token })
         .then(function (val) {
+            if (val === null) {
+                return null
+            }
             return val.username
         }).catch(function (err) {
-            throw err
+            console.log(err)
+            return null
         })
 }

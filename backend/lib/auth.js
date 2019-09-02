@@ -4,15 +4,19 @@ exports.authenticate = function (req, res, next) {
     console.log(token);
 
     if (token === null) {
-        res.status(401)
+        res.sendStatus(401)
     } else {
         UsersModel.getUsernameFor(token).then(function (username) {
+            if (username === null) {
+                res.sendStatus(401)
+                return
+            }
             console.log(username + ' validated')
             req.locals = { 'token': token } // attach the token somewhere more convenient
             next()
         }).catch(function (reason) {
-            console.log(reason)
-            res.status(401)
+            console.log('ding ' + reason)
+            res.sendStatus(401)
         })
     }
 }

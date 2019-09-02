@@ -31,8 +31,7 @@
 </template>
 
 <script>
-const Crypto = require("crypto-js");
-const axios = require("axios");
+const Crypto = require("crypto-js")
 export default {
   data() {
     return {
