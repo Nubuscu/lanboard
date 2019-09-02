@@ -1,45 +1,66 @@
 <template>
-<b-card-group>
-    <b-card v-for="rule in rules" v-bind:key="rule.id" class="card">
+  <div>
+    <b-form-group>
+      <b-form-select
+        id="game-select"
+        v-model="game"
+        :options="games"
+        required
+        @change="getRulesForGame($event)"
+      />
+    </b-form-group>
+    <b-card-group v-if="rules.length">
+      <b-card v-for="rule in rules" v-bind:key="rule.id" class="card">
         MAKE ME PRETTY
         {{rule.name}}
         {{rule.desc}}
         {{rule.points}}
-    </b-card>
-</b-card-group>  
+      </b-card>
+    </b-card-group>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "Rules",
-    data() {
-        return {
-            rules: [{
-                'id': 1,
-                'name': 'This is a placeholder',
-                'desc': "every time you a thing, something or other, get a point I guess. I'm rambling again, aren't I?",
-                'points': 1
-            },
-            {
-                'id': 2,
-                'name': 'This another is a placeholder',
-                'desc': "every time you a thing, something or other, get a point I guess. I'm rambling again, aren't I?",
-                'points': 1
-            }
-            ]
-        }
+  name: "Rules",
+  data() {
+    return {
+      url: process.env.LANBOARD_BACKEND_URL || "http://localhost:5000",
+      game: "TTT",
+      games: [],
+      rules: []
+    };
+  },
+  methods: {
+    getGames: function() {
+      console.log("temp shortcut for getting games");
+      this.$http
+        .get(this.url + "/games")
+        .then(function(response) {
+          this.games = response.body
+        })
+        .catch(function(reason) {
+          console.log(reason)
+          this.games = []
+        });
     },
-    methods: {
-        getRulesForGame: function (game) {
-            //TODO fetch rules from backend
-            // this.data = 
-        }   
+    getRulesForGame: function(game) {
+      this.$http.get(this.url + "/games/" + game + "/rules").then( function(response) {
+        this.rules = response.body
+      }).catch(function(reason) {
+        console.log(reason)
+        this.rules = []
+      })
     }
-}
+  },
+  mounted: function() {
+    this.getGames()
+  }
+};
 </script>
 
 <style>
 .card {
-    min-width: 100%;
+  min-width: 100%;
 }
 </style>

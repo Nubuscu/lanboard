@@ -2,11 +2,9 @@
 <b-container fluid>  
     <b-row>
         <b-col sm="8">
-            <!-- rules list here -->
             <rules/>
         </b-col>
         <b-col sm="4">
-            <!-- scoreboard here -->
             <scores/>
         </b-col>
     </b-row>
