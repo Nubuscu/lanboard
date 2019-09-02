@@ -3,11 +3,35 @@
         "name": "ttt",
         "rules": [
             {
+                "id": 1,
+                "name": "Winning",
+                "desc": "Be alive at the end of the round",
+                "points": 1
+            },
+            {
+                "id": 4,
+                "name": "Guns are overrated",
+                "desc": "As an innocent, kill a traitor with the crowbar",
+                "points": 2
+            },
+            {
                 "id": 0,
                 "name": "Win the round with a jihad bomb",
                 "desc": "Must be within 3 seconds of the end of the game",
                 "points": 1
-            }
+            },
+            {
+                "id": 3,
+                "name": "One deag",
+                "desc": "score the round-winning kill with a 360 noscope using a single-fire weapon (Deagle, shotgun, rifle, awp)",
+                "points": 3
+            }, 
+            {
+                "id": 2,
+                "name": "Trickster",
+                "desc": "As a traitor, convince an innocent to kill another innocent",
+                "points": 2
+            } 
         ]
     },
     {
@@ -17,7 +41,19 @@
                 "id": 0,
                 "name": "360 noscope",
                 "desc": "points awarded for every kill scored with a 360 no-scope using a scoped weapon (sniper)",
-                "points": 3
+                "points": 1
+            },
+            {
+                "id": 1,
+                "name": "ambidextrous",
+                "desc": "play a full round with the mouse in the wrong hand",
+                "points": 1
+            },
+            {
+                "id": 2,
+                "name": "Winning",
+                "desc": "win a round", 
+                "points": 1
             }
         ]
     }
