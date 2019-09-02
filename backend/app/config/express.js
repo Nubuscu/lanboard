@@ -8,5 +8,6 @@ module.exports = () => {
 
     require('../routes/users.js')(app)
     require('../routes/scores.js')(app)
+    require('../routes/games.js')(app)
     return app
 }

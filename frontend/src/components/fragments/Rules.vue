@@ -33,10 +33,10 @@ export default {
   },
   methods: {
     getGames: function() {
-      console.log("temp shortcut for getting games");
       this.$http
         .get(this.url + "/games")
         .then(function(response) {
+          console.log(response.body)
           this.games = response.body
         })
         .catch(function(reason) {

@@ -1,0 +1,24 @@
+[
+    {
+        "name": "ttt",
+        "rules": [
+            {
+                "id": 0,
+                "name": "Win the round with a jihad bomb",
+                "desc": "Must be within 3 seconds of the end of the game",
+                "points": 1
+            }
+        ]
+    },
+    {
+        "name": "ut",
+        "rules": [
+            {
+                "id": 0,
+                "name": "360 noscope",
+                "desc": "points awarded for every kill scored with a 360 no-scope using a scoped weapon (sniper)",
+                "points": 3
+            }
+        ]
+    }
+]
