@@ -21,27 +21,34 @@ export default {
   name: "Scores",
   data() {
     return {
-      scores: [
-        {
-          user_id: 1,
-          username: "Number One Champ",
-          score: 142
-        },
-        {
-            user_id: 2,
-            username: "Nubuscu",
-            score: -3
-        },
-        {
-            user_id: 3,
-            username: "sbeve",
-            score: 1
-        }
-      ]
-    };
+      url: process.env.LANBOARD_BACKEND_URL || "http://localhost:5000",
+      polling: null,
+
+      scores: []
+    }
+  },
+  methods: {
+    fetchScoreboard: function() {
+      this.$http.get(this.url + '/scores/scoreboard').then(function (res) {
+        let users = res.body.map(x => {
+          x.id = x._id
+          delete x._id
+          return x
+        })
+        users.sort((a, b) => {return b.score - a.score})
+        this.scores = users
+      })
+    }
   },
   mounted: function() {
-    // TODO polling? websockets/pusher?
+    this.fetchScoreboard()
+    this.polling = setInterval(() => {
+      this.fetchScoreboard()
+      console.log('boop')
+    }, 5e3)
+  },
+  destroyed: function() {
+    clearInterval(this.polling)
   }
 };
 </script>

@@ -3,31 +3,31 @@
         "name": "ttt",
         "rules": [
             {
-                "id": 1,
+                "id": 0,
                 "name": "Winning",
                 "desc": "Be alive at the end of the round",
                 "points": 1
             },
             {
-                "id": 4,
+                "id": 1,
                 "name": "Guns are overrated",
                 "desc": "As an innocent, kill a traitor with the crowbar",
                 "points": 2
             },
             {
-                "id": 0,
+                "id": 2,
                 "name": "Win the round with a jihad bomb",
                 "desc": "Must be within 3 seconds of the end of the game",
                 "points": 1
             },
             {
                 "id": 3,
-                "name": "One deag",
+                "name": "Juan Deag",
                 "desc": "score the round-winning kill with a 360 noscope using a single-fire weapon (Deagle, shotgun, rifle, awp)",
                 "points": 3
             }, 
             {
-                "id": 2,
+                "id": 4,
                 "name": "Trickster",
                 "desc": "As a traitor, convince an innocent to kill another innocent",
                 "points": 2
@@ -54,6 +54,18 @@
                 "name": "Winning",
                 "desc": "win a round", 
                 "points": 1
+            },
+            {
+                "id": 3,
+                "name": "Hippity hoppity get off my property",
+                "desc": "get an environmental kill (off the map, lava, etc.)",
+                "points": 2
+            },
+            {
+                "id": 4,
+                "name": "gnedfludap",
+                "desc": "have the person next to you rebind all of your keys and play like that for a round",
+                "points": 2
             }
         ]
     }
