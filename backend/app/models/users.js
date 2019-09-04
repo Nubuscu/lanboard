@@ -1,10 +1,8 @@
-const mongo = require('mongodb').MongoClient
-var url = "mongodb://localhost:27017/" //TODO abstract this
-var dbName = 'lanboard'
-var collectionName = 'users'
+const { db } = require('../config/db.js');
+const dbName = 'lanboard';
+const collectionName = 'users';
 
 exports.create = async function (username, password, score, token) {
-    let db = await mongo.connect(url)
     var dbo = db.db(dbName)
     return dbo.collection(collectionName).updateOne(
         {
@@ -29,7 +27,6 @@ exports.create = async function (username, password, score, token) {
         })
 }
 exports.verifyPassword = async function (username, password) {
-    let db = await mongo.connect(url)
     var dbo = db.db(dbName)
     return dbo.collection(collectionName).findOne({ 'username': username })
         .then(function (val) {
@@ -42,7 +39,6 @@ exports.verifyPassword = async function (username, password) {
         })
 }
 exports.getTokenFor = async function (username) {
-    let db = await mongo.connect(url)
     var dbo = db.db(dbName)
     return dbo.collection(collectionName).findOne({ 'username': username })
         .then(function (val) {
@@ -55,7 +51,6 @@ exports.getTokenFor = async function (username) {
  * verifies the token given and resolves with the username if the token is valid
  */
 exports.getUsernameFor = async function (token) {
-    let db = await mongo.connect(url)
     var dbo = db.db(dbName)
     return dbo.collection(collectionName).findOne({ 'token': token })
         .then(function (val) {
