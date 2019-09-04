@@ -11,6 +11,7 @@ import VueLocalStorage from 'vue-localstorage'
 import VueResource from 'vue-resource'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import './style/custom.css'
 
 console.assert(process.env.LANBOARD_BACKEND_URL, 'env vars should not be falsy')
 
